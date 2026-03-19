@@ -1,3 +1,19 @@
+/*
+    ASSIGNMENT 1
+
+    Design and implement a class that represent X = M(R)
+    - with a proper equals().
+    - with a proper toString().
+    - with a proper constructor that takes 0+ values in R.
+
+    ASSIGNMENT 2
+
+    Write an application that reads from stdin two comma-separated lists of real numbers,
+    create x1, x2 in X and outputs a text message saying if x1,x2 are the same or not.
+    - user gives two separated inputs.
+    - comma separated values within each input.
+ */
+
 void main() {
     Scanner scanner = new Scanner(System.in);
     IO.println("Insert list of real numbers");
@@ -37,12 +53,12 @@ void main() {
         }
     }
 
-    MultisetOfReals firstMultiset = new MultisetOfReals(firstDoubleArray);
-    MultisetOfReals secondMultiset = new MultisetOfReals(secondDoubleArray);
+    MultisetOfReals x1 = new MultisetOfReals(firstDoubleArray);
+    MultisetOfReals x2 = new MultisetOfReals(secondDoubleArray);
 
-    if (firstMultiset.equals(secondMultiset)) {
-        IO.println(firstMultiset + " is the same as " + secondMultiset);
+    if (x1.equals(x2)) {
+        IO.println(x1 + " is the same as " + x2);
     } else {
-        IO.println(firstMultiset + " is NOT the same as " + secondMultiset);
+        IO.println(x1 + " is NOT the same as " + x2);
     }
 }
