@@ -1,57 +1,13 @@
-/*
-    ASSIGNMENT 1
-
-    Design and implement a class that represent X = M(R)
-    - with a proper equals().
-    - with a proper toString().
-    - with a proper constructor that takes 0+ values in R.
-
-    ASSIGNMENT 2
-
-    Write an application that reads from stdin two comma-separated lists of real numbers,
-    create x1, x2 in X and outputs a text message saying if x1,x2 are the same or not.
-    - user gives two separated inputs.
-    - comma separated values within each input.
- */
-
 void main() {
     Scanner scanner = new Scanner(System.in);
     IO.println("Insert list of real numbers");
-    String firstStringList = scanner.nextLine();
+    String firstStringList = scanner.nextLine().trim();
     IO.println("Insert list of real numbers");
-    String secondStringList = scanner.nextLine();
+    String secondStringList = scanner.nextLine().trim();
     scanner.close();
 
-    String[] firstStringArray;
-    String[] secondStringArray;
-
-    if (firstStringList.isEmpty()) {
-        firstStringArray = new String[]{""};
-    } else {
-        firstStringArray = firstStringList.split(",");
-    }
-    if (secondStringList.isEmpty()) {
-        secondStringArray = new String[]{""};
-    } else {
-        secondStringArray = secondStringList.split(",");
-    }
-
-    double[] firstDoubleArray = new double[firstStringArray.length];
-    double[] secondDoubleArray = new double[secondStringArray.length];
-    if (firstStringList.isEmpty()) {
-        firstDoubleArray[0] = 0;
-    } else {
-        for (int i = 0; i < firstDoubleArray.length; i++) {
-            firstDoubleArray[i] = Double.parseDouble(firstStringArray[i]);
-        }
-    }
-    if (secondStringList.isEmpty()) {
-        secondDoubleArray[0] = 0;
-    } else {
-        for (int i = 0; i < secondDoubleArray.length; i++) {
-            secondDoubleArray[i] = Double.parseDouble(secondStringArray[i]);
-        }
-    }
+    double[] firstDoubleArray = parseDoubleArray(firstStringList);
+    double[] secondDoubleArray = parseDoubleArray(secondStringList);
 
     MultisetOfReals x1 = new MultisetOfReals(firstDoubleArray);
     MultisetOfReals x2 = new MultisetOfReals(secondDoubleArray);
@@ -61,4 +17,16 @@ void main() {
     } else {
         IO.println(x1 + " is NOT the same as " + x2);
     }
+}
+
+double[] parseDoubleArray(String input) {
+    if (input.isEmpty()) {
+        return new double[0];
+    }
+    String[] parts = input.split(",");
+    double[] result = new double[parts.length];
+    for (int i = 0; i < parts.length; i++) {
+        result[i] = Double.parseDouble(parts[i].trim());
+    }
+    return result;
 }
