@@ -39,9 +39,6 @@ public class MultisetOfReals {
 
     @Override
     public boolean equals(Object other) {
-        if (other == null) {
-            return false;
-        }
         if (!(other instanceof MultisetOfReals)) {
             return false;
         }
