@@ -22,39 +22,8 @@ void main() {
     String secondStringList = scanner.nextLine();
     scanner.close();
 
-    String[] firstStringArray;
-    String[] secondStringArray;
-
-    if (firstStringList.isEmpty()) {
-        firstStringArray = new String[]{""};
-    } else {
-        firstStringArray = firstStringList.split(",");
-    }
-    if (secondStringList.isEmpty()) {
-        secondStringArray = new String[]{""};
-    } else {
-        secondStringArray = secondStringList.split(",");
-    }
-
-    double[] firstDoubleArray = new double[firstStringArray.length];
-    double[] secondDoubleArray = new double[secondStringArray.length];
-    if (firstStringList.isEmpty()) {
-        firstDoubleArray[0] = 0;
-    } else {
-        for (int i = 0; i < firstDoubleArray.length; i++) {
-            firstDoubleArray[i] = Double.parseDouble(firstStringArray[i]);
-        }
-    }
-    if (secondStringList.isEmpty()) {
-        secondDoubleArray[0] = 0;
-    } else {
-        for (int i = 0; i < secondDoubleArray.length; i++) {
-            secondDoubleArray[i] = Double.parseDouble(secondStringArray[i]);
-        }
-    }
-
-    MultisetOfReals x1 = new MultisetOfReals(firstDoubleArray);
-    MultisetOfReals x2 = new MultisetOfReals(secondDoubleArray);
+    MultisetOfReals x1 = new MultisetOfReals(firstStringList);
+    MultisetOfReals x2 = new MultisetOfReals(secondStringList);
 
     if (x1.equals(x2)) {
         IO.println(x1 + " is the same as " + x2);
