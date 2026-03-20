@@ -20,9 +20,21 @@ public class MultisetOfReals {
 
     private final double[] orderedElements;
 
-    public MultisetOfReals(double[] numbers) {
-        Arrays.sort(numbers);
-        this.orderedElements = numbers;
+    public MultisetOfReals(String elements) {
+        String formattedElements = elements.replaceAll("\\s", "");
+        // If the constructor receives 0 arguments return 0
+        if (formattedElements.isEmpty()) {
+            this.orderedElements = new double[]{0};
+        } else {
+
+            String[] elementsArray = formattedElements.split(",");
+            this.orderedElements = new double[elementsArray.length];
+            for (int i = 0; i < elementsArray.length; i++) {
+                this.orderedElements[i] = Double.parseDouble(elementsArray[i]);
+            }
+        }
+        Arrays.sort(orderedElements);
+
     }
 
     @Override
